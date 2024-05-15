@@ -18,7 +18,7 @@ export default function Component() {
         <Navbar.Link
           href="#"
           className="text-green-600 dark:text-green-400"
-          active
+          // active
         >
           Home
         </Navbar.Link>
