@@ -4,19 +4,20 @@ import { Avatar, Dropdown, Navbar, DarkThemeToggle } from 'flowbite-react';
 
 export default function Component() {
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand href="#">
+    <Navbar fluid>
+      <Navbar.Brand href="/#">
         <img
-          src="/stocko.png"
-          className="mr-5 h-25 sm:h-16"
+          src="/stockoio.png"
+          className="mr-5 h-24 sm:h-18"
           alt="Stocko Logo"
+          
         />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
       </Navbar.Brand>
 
       <Navbar.Collapse className="text-green-600 dark:text-green-400">
         <Navbar.Link
-          href="#"
+          href="/#"
           className="text-green-600 dark:text-green-400"
           // active
         >
@@ -43,7 +44,7 @@ export default function Component() {
           label={
             <Avatar
               alt="User settings"
-              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              img="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
               rounded
             />
           }
