@@ -1,10 +1,18 @@
 import { Inter } from 'next/font/google';
 import { ThemeModeScript } from 'flowbite-react';
 import '../globals.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import './ui-components/fontawesome';
 import Navbar from './(components)/Navbar';
 import Footer from './(components)/Footer';
 
+
+
 const inter = Inter({ subsets: ['latin'] });
+
+config.autoAddCss = false;
+
 
 export default function RootLayout({ children }) {
   return (
