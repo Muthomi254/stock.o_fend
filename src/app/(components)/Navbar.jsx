@@ -57,7 +57,7 @@ export default function Component() {
           </Dropdown.Header>
           <Dropdown.Item>Dashboard</Dropdown.Item>
           <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Theme</Dropdown.Item>
+          {/* <Dropdown.Item>Theme</Dropdown.Item> */}
           <Dropdown.Divider />
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
