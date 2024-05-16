@@ -59,6 +59,12 @@ footer {
   animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+.transition-transform {
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
  @keyframes bounce {
 
   0%,
