@@ -58,7 +58,7 @@ export default function ForgotPassword() {
             Don't have an account?{' '}
             <Link
               href="/register"
-              className="text-cyan-600 hover:underline hover:dark:text-green-500  hover:text-green-900 dark:text-cyan-500"
+              className="text-green-600 hover:underline hover:dark:text-green-400  hover:text-green-800 dark:text-green-500"
             >
               Register here
             </Link>
