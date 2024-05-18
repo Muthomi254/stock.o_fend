@@ -1,16 +1,23 @@
 'use client';
 
 import { Avatar, Dropdown, Navbar, DarkThemeToggle } from 'flowbite-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faUser,
+  faCog,
+  faPalette,
+  faSignOutAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
-export default function Component() {
+
+export default function NavBar() {
   return (
-    <Navbar fluid>
+    <Navbar>
       <Navbar.Brand href="/#">
         <img
           src="/stockoio.png"
           className="mr-5 h-24 sm:h-18"
           alt="Stocko Logo"
-          
         />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
       </Navbar.Brand>
@@ -29,7 +36,10 @@ export default function Component() {
         <Navbar.Link href="#" className="text-green-600 dark:text-green-400">
           Services
         </Navbar.Link>
-        <Navbar.Link href="#" className="text-green-600 dark:text-green-400">
+        <Navbar.Link
+          href="/HomePage"
+          className="text-green-600 dark:text-green-400"
+        >
           Pricing
         </Navbar.Link>
         <Navbar.Link className="text-green-600 dark:text-green-400 ">
@@ -52,14 +62,26 @@ export default function Component() {
           <Dropdown.Header>
             <span className="block text-sm">Bonnie Green</span>
             <span className="block truncate text-sm font-medium">
-              name@flowbite.com
+              name@stock.io
             </span>
           </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          {/* <Dropdown.Item>Theme</Dropdown.Item> */}
+          <Dropdown.Item>
+            <FontAwesomeIcon icon={faUser} className="mr-2" />
+            Dashboard
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <FontAwesomeIcon icon={faCog} className="mr-2" />
+            Settings
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <FontAwesomeIcon icon={faPalette} className="mr-2" />
+            Theme
+          </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
+          <Dropdown.Item>
+            <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
+            Sign out
+          </Dropdown.Item>
         </Dropdown>
         <Navbar.Toggle />
       </div>
