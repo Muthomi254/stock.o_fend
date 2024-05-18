@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import './ui-components/fontawesome';
 import Navbar from './(components)/Navbar';
 import Footer from './(components)/Footer';
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <Toaster position="top-center"/>
       </body>
     </html>
   );
