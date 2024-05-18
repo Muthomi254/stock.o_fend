@@ -1,5 +1,7 @@
 "use client";
 
+import Link from 'next/link';
+
 import { useEffect, useState } from 'react';
 import {
   ChartBarIcon,
@@ -23,11 +25,18 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
         <header className="max-w-4xl mx-auto text-center py-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-pulse">
-            Welcome to Stocko
+            Welcome to Stocko.io
           </h1>
+
           <p className="text-lg md:text-xl mb-10 animate-bounce">
             Effortless Stock Management for Your Business
           </p>
+
+          <Link href="/login">
+            <button className="  px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-900 transition-colors duration-300 animate-bounce">
+              Login
+            </button>
+          </Link>
         </header>
 
         <section className="max-w-4xl mx-auto text-center mb-12">
@@ -126,9 +135,11 @@ export default function Home() {
             Join thousands of businesses using Stocko for their inventory
             management.
           </p>
-          <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-green-900 transition-colors duration-300">
-            Sign Up Now
-          </button>
+          <Link href="/register">
+            <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-900 transition-colors duration-300 animate-bounce">
+              Sign Up Now
+            </button>
+          </Link>
         </section>
       </div>
     </div>
