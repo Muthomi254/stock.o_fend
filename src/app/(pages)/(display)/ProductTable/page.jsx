@@ -129,7 +129,7 @@ export default function ProductTable() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 md:p-8 lg:p-12 ">
       <div className="w-full max-w-4xl mx-auto p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -139,7 +139,7 @@ export default function ProductTable() {
             onClick={handleAddProduct} // Call handleAddProduct on button click
             className={`flex items-center text-white ${
               showProductForm
-                ? 'bg-red-600 hover:bg-red-700 dark:bg-red-600'
+                ? 'bg-red-600 hover:bg-red-700 dark:bg-red-600 animate-bounce'
                 : 'bg-blue-600 hover:bg-blue-700'
             } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-4`}
           >

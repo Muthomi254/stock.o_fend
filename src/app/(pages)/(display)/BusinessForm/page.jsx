@@ -49,8 +49,11 @@ export default function BusinessForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-      <form className="w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 p-4 md:p-8 lg:p-12">
+      <form
+        className="w-full max-w-lg mx-auto "
+        onSubmit={handleSubmit}
+      >
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="text"
