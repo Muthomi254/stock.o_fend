@@ -139,7 +139,7 @@ export default function ProductTable() {
             onClick={handleAddProduct} // Call handleAddProduct on button click
             className={`flex items-center text-white ${
               showProductForm
-                ? 'bg-red-600 hover:bg-red-700 dark:bg-red-600 animate-bounce'
+                ? 'bg-red-600 hover:bg-red-700 dark:bg-red-600 animate-bounce hover:animate-pulse'
                 : 'bg-blue-600 hover:bg-blue-700'
             } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-4`}
           >
