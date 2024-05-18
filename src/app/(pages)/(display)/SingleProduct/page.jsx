@@ -170,7 +170,7 @@ export default function StockDetails() {
         </div>
         {/* Display ProductForm to the right side when showProductForm is true */}
         {showProductForm && (
-          <div className="w-full max-w-sm ml-8">
+          <div className="w-full max-w-sm ml-8  bg-transparent">
             <ProductForm />
           </div>
         )}
