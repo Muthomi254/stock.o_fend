@@ -30,17 +30,17 @@ export default function NavBar() {
         >
           Home
         </Navbar.Link>
-        <Navbar.Link href="#" className="text-green-600 dark:text-green-400">
+        <Navbar.Link href="/About" className="text-green-600 dark:text-green-400">
           About
         </Navbar.Link>
 
         <Navbar.Link
-          href="/HomePage"
+          href="/Pricing"
           className="text-green-600 dark:text-green-400"
         >
           Pricing
         </Navbar.Link>
-        <Navbar.Link href="#" className="text-green-600 dark:text-green-400">
+        <Navbar.Link href="/Contact" className="text-green-600 dark:text-green-400">
           Contact Us
         </Navbar.Link>
         <Navbar.Link className="text-green-600 dark:text-green-400 ">
