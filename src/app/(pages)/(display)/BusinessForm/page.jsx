@@ -18,7 +18,7 @@ export default function BusinessForm() {
       {
         loading: 'Creating ...', // Display loading message
         success: () => {
-          router.push('/ProductTable'); // Redirect to ProductTable page on success
+          router.push('/Inventory'); // Redirect to ProductTable page on success
           return toast('Good Job! Business created successfully!', {
             icon: '👏',
           }); // Return success message
