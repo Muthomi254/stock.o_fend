@@ -2,7 +2,7 @@
 
 import { Footer } from 'flowbite-react';
 
-export default function Footer() {
+export default function FooterComponent() {
   return (
     <Footer container>
       <Footer.Copyright href="#" by="Stocko™" year={2024} />
