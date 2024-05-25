@@ -21,9 +21,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
+    <div className="bg-white dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
-        <header className="max-w-4xl mx-auto text-center py-12">
+        <header className="max-w-4xl mx-auto text-center py-12 ">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-pulse">
             Welcome to Stocko.io
           </h1>
