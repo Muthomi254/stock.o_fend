@@ -4,7 +4,7 @@ import '../globals.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import './ui-components/fontawesome';
-import Navbar from './(components)/Navbar';
+import Navbar from './(components)/Navbars/Navbar2';
 import Footer from './(components)/Footer';
 import { Toaster } from 'react-hot-toast';
 
