@@ -124,7 +124,7 @@ export default function Contact() {
               icon={
                 <FontAwesomeIcon
                   icon={faFacebook}
-                  className="h-8 w-8 text-green-600 dark:text-green-400"
+                  className="h-8 w-8 text-green-600 dark:text-green-400 animate-wiggle hover:animate-pulse"
                 />
               }
             />
@@ -133,7 +133,7 @@ export default function Contact() {
               icon={
                 <FontAwesomeIcon
                   icon={faTwitter}
-                  className="h-8 w-8 text-green-600 dark:text-green-400"
+                  className="h-8 w-8 text-green-600 dark:text-green-400  animate-wiggle"
                 />
               }
             />
@@ -142,7 +142,7 @@ export default function Contact() {
               icon={
                 <FontAwesomeIcon
                   icon={faLinkedin}
-                  className="h-8 w-8 text-green-600 dark:text-green-400"
+                  className="h-8 w-8 text-green-600 dark:text-green-400 hover:animate-wiggle"
                 />
               }
             />
@@ -151,7 +151,7 @@ export default function Contact() {
               icon={
                 <FontAwesomeIcon
                   icon={faInstagram}
-                  className="h-8 w-8 text-green-600 dark:text-green-400"
+                  className="h-8 w-8 text-green-600 dark:text-green-400 hover:animate-wiggle"
                 />
               }
             />
