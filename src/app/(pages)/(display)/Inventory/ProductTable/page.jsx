@@ -187,10 +187,9 @@ export default function ProductTable() {
           </Button>
         </div>
         <div>
-          <button onClick={handleOpenModal}>Add Product</button>
           <AddModal
             open={isModalOpen}
-            title="Add Product From Same Supplier"
+            title="Add Product"
             size="2xl"
             className="bg-transparent"
             onClose={handleCloseModal}
