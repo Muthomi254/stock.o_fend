@@ -184,7 +184,7 @@ export default function StockDetails() {
         {showProductForm && (
           <div className="w-full max-w-sm ml-8 p-2">
             <ProductForm
-              isUpdating={isUpdating}
+              isUpdating={(isUpdating, setIsUpdating)}
               onClose={() => setShowProductForm(false)}
             />{' '}
             {/* Pass isAdding prop to ProductForm */}{' '}
