@@ -28,6 +28,7 @@ export default function ProductForm({ onClose, isUpdating, setIsUpdating, data }
     handleSubmit,
     control,
     reset,
+    getValues,
     formState: { errors },
   } = useForm();
 
@@ -82,7 +83,7 @@ const onSubmit = async (formData) => {
       console.log('Updating product with data:', formData);
       setLoading(false); // Set loading state to false
       onClose(); // Close the form modal after updating
-      toast.success('Product updated successfully!', { icon: '🔄' }); // Success toast
+      toast.success('Product updated successfully!', { icon: '📝' }); // Success toast
     } catch (error) {
       console.error('Error while updating product:', error);
       toast.error('Error while updating product. Please try again later.'); // Error toast
@@ -170,7 +171,7 @@ const onSubmit = async (formData) => {
               name="stock_name"
               control={control}
               defaultValue=""
-              rules={{ required: true }}
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <>
                   <input
@@ -178,7 +179,7 @@ const onSubmit = async (formData) => {
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
                     placeholder=" "
-                    required
+                    required={isUpdating}
                   />
                   <label
                     htmlFor="stock_name"
@@ -199,7 +200,7 @@ const onSubmit = async (formData) => {
               name="description"
               control={control}
               defaultValue=""
-              rules={{ required: true }}
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <>
                   <input
@@ -207,7 +208,7 @@ const onSubmit = async (formData) => {
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
                     placeholder=" "
-                    required
+                    required={isUpdating}
                   />
                   <label
                     htmlFor="description"
@@ -228,7 +229,7 @@ const onSubmit = async (formData) => {
               name="barcode"
               control={control}
               defaultValue=""
-              rules={{ required: true }}
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <>
                   <input
@@ -236,7 +237,7 @@ const onSubmit = async (formData) => {
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
                     placeholder=" "
-                    required
+                    required={isUpdating}
                   />
                   <label
                     htmlFor="barcode"
@@ -257,17 +258,20 @@ const onSubmit = async (formData) => {
               name="supplier"
               control={control}
               defaultValue="Jumia"
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <div>
                   <select
                     {...field}
                     className="block py-2.5 px-0 w-full  text-sm text-gray-900 dark:text-gray-100 mt-5  dark:bg-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
-                    required
+                    required={isUpdating}
                   >
                     <option value="Jumia">Jumia</option>
                     <option value="Statpack">Statpack</option>
                     <option value="Naivas">Naivas</option>
                     <option value="Rosakid">Rosakid</option>
+                    <option value="Masoko">Masoko</option>
+                    <option value="Sokowatch">Sokowatch</option>
                   </select>
                   <label
                     htmlFor="supplier"
@@ -284,21 +288,25 @@ const onSubmit = async (formData) => {
             <Controller
               name="category"
               control={control}
+              rules={{ required: isUpdating }}
               defaultValue="Electronics"
               render={({ field }) => (
                 <>
                   <select
                     {...field}
                     className="block py-2.5 px-0 w-full  text-sm text-gray-900 dark:text-gray-100 mt-5  dark:bg-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
-                    required
+                    required={isUpdating}
                   >
                     <option value="Electronics">Electronics</option>
+                    <option value="Home and Kitchen">Home and Kitchen</option>
+                    <option value="Beauty and Personal Care">
+                      Beauty and Personal Care
+                    </option>
                     <option value="Fashion">Fashion</option>
-                    <option value="Groceries">Groceries</option>
-                    <option value="Home">Home</option>
-                    <option value="Beauty">Beauty</option>
+                    <option value="Baby Products">Baby Products</option>
                     <option value="Sports">Sports</option>
                     <option value="Automotive">Automotive</option>
+                    <option value="Other">Other</option>
                   </select>
                   <label
                     htmlFor="category"
@@ -316,7 +324,7 @@ const onSubmit = async (formData) => {
               name="buying_price"
               control={control}
               defaultValue=""
-              rules={{ required: true }}
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <>
                   <input
@@ -324,7 +332,7 @@ const onSubmit = async (formData) => {
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
                     placeholder=" "
-                    required
+                    required={isUpdating}
                   />
                   <label
                     htmlFor="buying_price"
@@ -345,7 +353,7 @@ const onSubmit = async (formData) => {
               name="selling_price"
               control={control}
               defaultValue=""
-              rules={{ required: true }}
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <>
                   <input
@@ -353,7 +361,7 @@ const onSubmit = async (formData) => {
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
                     placeholder=" "
-                    required
+                    required={isUpdating}
                   />
                   <label
                     htmlFor="selling_price"
@@ -374,7 +382,7 @@ const onSubmit = async (formData) => {
               name="quantity"
               control={control}
               defaultValue=""
-              rules={{ required: true }}
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <>
                   <input
@@ -382,7 +390,7 @@ const onSubmit = async (formData) => {
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
                     placeholder=" "
-                    required
+                    required={isUpdating}
                   />
                   <label
                     htmlFor="quantity"
@@ -403,12 +411,13 @@ const onSubmit = async (formData) => {
               name="unit"
               control={control}
               defaultValue="PIECES"
+              rules={{ required: isUpdating }}
               render={({ field }) => (
                 <div>
                   <select
                     {...field}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 dark:text-gray-100 mt-5  dark:bg-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
-                    required
+                    required={isUpdating}
                   >
                     <option value="PIECES">Pieces</option>
                     <option value="BOXES">Boxes</option>
@@ -544,16 +553,24 @@ const onSubmit = async (formData) => {
             ))}
           </ol>
         </div>
-        <form  className="w-full max-w-lg mx-auto ml-5"
-  onSubmit={handleSubmit(onSubmit)}
-  ref={formRef}>
-          <div className="flex justify-center items-center mt-5">
+        <form
+          className="w-full max-w-lg mx-auto ml-5"
+          onSubmit={handleSubmit(onSubmit)}
+          ref={formRef}
+        >
+          <div className="flex justify-end items-end mt-5">
             <button
               type="submit"
               className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               disabled={loading}
             >
-              {loading ? 'Saving...' : 'Save'}
+              {isUpdating
+                ? loading
+                  ? 'Updating... ⏳'
+                  : 'Update 📝'
+                : loading
+                ? 'Saving... ⏳'
+                : 'Save💾'}
             </button>
           </div>
         </form>
