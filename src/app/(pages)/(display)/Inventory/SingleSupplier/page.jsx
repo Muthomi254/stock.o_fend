@@ -16,19 +16,20 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export default function SupplierDetails() {
   const router = useRouter();
+  const [isUpdating, setIsUpdating] = useState(false); // Add isUpdating state
+
   const [showSupplierForm, setShowSupplierForm] = useState(false);
 
   // Sample data for display purposes
-   const supplier = {
-     supplierCode: 'SUP001', // Added supplierCode
-     name: 'Supplier 1',
-     companyName: 'Duka',
-     email: 'supplier@example.com',
-     phone: '123-456-7890',
-     address: '123 Main St, City, Country',
-     stockName: '{product.stockName}',
-   };
-
+  const supplier = {
+    supplierCode: 'SUP001', // Added supplierCode
+    name: 'Supplier 1',
+    companyName: 'Duka',
+    email: 'supplier@example.com',
+    phone: '123-456-7890',
+    address: '123 Main St, City, Country',
+    stockName: '{product.stockName}',
+  };
 
   const handleBack = () => {
     router.back();
@@ -36,6 +37,7 @@ export default function SupplierDetails() {
 
   const handleEditSupplier = () => {
     setShowSupplierForm(!showSupplierForm);
+    setIsUpdating(!isUpdating); // Toggle isUpdating state
   };
 
   const handleDeleteSupplier = () => {
@@ -172,7 +174,10 @@ export default function SupplierDetails() {
         {/* Display SupplierForm to the right side when showSupplierForm is true */}
         {showSupplierForm && (
           <div className="w-full max-w-sm ml-8  bg-transparent">
-            <SupplierForm />
+            <SupplierForm
+              onClose={() => setShowSupplierForm(false)}
+               isUpdating={(isUpdating, setIsUpdating)}
+            />
           </div>
         )}
       </div>
