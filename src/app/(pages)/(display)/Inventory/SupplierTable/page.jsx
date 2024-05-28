@@ -3,13 +3,24 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Updated import
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEye,
+  faPlus,
+  faTimes,
+  faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import SupplierForm from '../../../../(components)/Forms/SupplierForm'; // Adjust the path accordingly
 import SearchBar from '../../../../(components)/SearchBar/Search';
+import AddModal from '../../../../ui-components/AddModal';
+import {  Button } from 'flowbite-react';
+
+
 
 export default function SupplierTable() {
   const router = useRouter();
+    const [isModalOpen, setModalOpen] = useState(false);
   const [showSupplierForm, setShowSupplierForm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const suppliers = [
     {
@@ -17,7 +28,7 @@ export default function SupplierTable() {
       name: 'Supplier 1',
       companyName: 'Jumia',
       email: 'supplier1@example.com',
-      phone: '123-456-7890',
+      phone: '+254799572055',
       address: '123 Main St, City, Country',
     },
     {
@@ -32,11 +43,16 @@ export default function SupplierTable() {
   ];
 
   const handleAddSupplier = () => {
-    setShowSupplierForm(!showSupplierForm);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   const handleViewSupplier = () => {
-    router.push('/Inventory/SingleSupplier');
+    setLoading(true);
+    router.push('/Inventory/SingleSupplier')
   };
 
   return (
@@ -46,20 +62,25 @@ export default function SupplierTable() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             All Suppliers
           </h2>
-          <button
-            onClick={handleAddSupplier}
-            className={`flex items-center text-white ${
-              showSupplierForm
-                ? 'bg-red-600 hover:bg-red-700 dark:bg-red-600 animate-bounce hover:animate-pulse'
-                : 'bg-blue-600 hover:bg-blue-700'
-            } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-4`}
-          >
+          <Button onClick={handleAddSupplier}>
             <FontAwesomeIcon
-              icon={showSupplierForm ? faTimes : faPlus}
+              icon={faPlus} // Change icon based on showSupplierForm state
               className="mr-2"
             />
-            {showSupplierForm ? 'Close' : 'Add'}
-          </button>
+            Add Supplier
+          </Button>
+        </div>
+        <div>
+          <AddModal
+            open={isModalOpen}
+            title="Create Supplier"
+            size="xl"
+            styles="pills"
+            className="bg-transparent "
+            onClose={handleCloseModal}
+          >
+            <SupplierForm onClose={handleCloseModal} />
+          </AddModal>
         </div>
         <div className="overflow-x-auto">
           <SearchBar />
@@ -121,8 +142,16 @@ export default function SupplierTable() {
                     <button
                       onClick={handleViewSupplier}
                       className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2"
+                      disabled={loading} // Disable button when loading
                     >
-                      <FontAwesomeIcon icon={faEye} className="mr-2" />
+                      {loading ? (
+                        <FontAwesomeIcon
+                          icon={faSpinner}
+                          className="animate-spin mr-2"
+                        />
+                      ) : (
+                        <FontAwesomeIcon icon={faEye} className="mr-2" />
+                      )}
                       View
                     </button>
                   </td>
