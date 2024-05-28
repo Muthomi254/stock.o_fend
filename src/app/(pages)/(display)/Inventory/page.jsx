@@ -1,23 +1,46 @@
 "use client";
 
-import { useEffect } from 'react';
-import { faBox, faUndo, faTruck, faShareSquare } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import {
+  faBox,
+  faUndo,
+  faTruck,
+  faShareSquare,
+  faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-export default function Home() {
-  useEffect(() => {
-    // Optionally, add any JavaScript for animations or interactivity
-  }, []);
+export default function Inventory() {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+ useEffect(() => {
+   const handleRouteChange = () => setLoading(false);
+
+   handleRouteChange();
+ }, [router]);
+
+ const handleClick = () => {
+   setLoading(true);
+ };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
-      {/* Existing content */}
-
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100  dark:bg-transparent-100 bg-opacity-75 z-50">
+          <FontAwesomeIcon
+            icon={faSpinner}
+            className="h-16 w-16 text-green-600 dark:text-green-400 animate-spin"
+          />
+        </div>
+      )}
       <section className="max-w-4xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-semibold mb-8">Product Overview</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Link href="/Inventory/ProductTable">
+                        <div onClick={handleClick}>
             <ProductCard
               icon={
                 <FontAwesomeIcon
@@ -28,8 +51,11 @@ export default function Home() {
               title="Received Inventory"
               description="View and manage received inventory items."
             />
+            </div>          
+
           </Link>
           <Link href="/Inventory/ReturnTable">
+                        <div onClick={handleClick}>
             <ProductCard
               icon={
                 <FontAwesomeIcon
@@ -40,9 +66,12 @@ export default function Home() {
               title="Returns"
               description="Handle returns and refunds efficiently."
             />
+                      </div>          
+
           </Link>
 
           <Link href="/Inventory/SupplierTable">
+                        <div onClick={handleClick}>
             <ProductCard
               icon={
                 <FontAwesomeIcon
@@ -53,8 +82,12 @@ export default function Home() {
               title="Suppliers"
               description="Manage relationships with suppliers and vendors."
             />
-          </Link>
+                      </div>          
 
+          </Link>
+                    <Link href="">
+
+            <div onClick={handleClick}>
           <ProductCard
             icon={
               <FontAwesomeIcon
@@ -65,6 +98,8 @@ export default function Home() {
             title="Dispatch"
             description="Coordinate dispatches and deliveries."
           />
+          </div>
+          </Link>
         </div>
       </section>
 
