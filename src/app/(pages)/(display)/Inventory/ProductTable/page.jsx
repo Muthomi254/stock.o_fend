@@ -140,9 +140,7 @@ export default function ProductTable() {
     // Toggle the state to show/hide ProductForm
     setModalOpen(true);
   };
-  const handleOpenModal = () => {
-    setModalOpen(false);
-  };
+ 
 
   const handleCloseModal = () => {
     setModalOpen(false);
