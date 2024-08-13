@@ -7,26 +7,23 @@ import {
   faCog,
   faPalette,
   faSignOutAlt,
-  faBox,
-  faUndo,
-  faTruck,
-  faShareSquare,
-} from '@fortawesome/free-solid-svg-icons';
+ } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function NavBar() {
   return (
     <Navbar>
       <Navbar.Brand href="/#">
-        <img
-          src="/stockoio.png"
-          className="mr-5 h-24 sm:h-18"
-          alt="Stocko Logo"
-        />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          <img
+            src="/stockoio.png"
+            className="mr-5 h-24 sm:h-18"
+            alt="Stocko Logo"
+          />
+        </span>
       </Navbar.Brand>
 
-      <Navbar.Collapse className="text-green-600 dark:text-green-400">
+      <Navbar.Collapse className="text-green-600 dark:text-green-400 font-bold">
         <Navbar.Link
           href="/Inventory"
           className="text-green-600 dark:text-green-400"

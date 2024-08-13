@@ -13,16 +13,19 @@ import {
 export default function NavBar() {
   return (
     <Navbar>
-      <Navbar.Brand href="/#">
-        <img
-          src="/stockoio.png"
-          className="mr-5 h-24 sm:h-18"
-          alt="Stocko Logo"
-        />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
-      </Navbar.Brand>
+      <div>
+        <Navbar.Brand href="/#">
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <img
+              src="/stockoio.png"
+              className="mr-5 h-24 sm:h-18"
+              alt="Stocko Logo"
+            />
+          </span>
+        </Navbar.Brand>
+      </div>
 
-      <Navbar.Collapse className="text-green-600 dark:text-green-400">
+      <Navbar.Collapse className="text-green-600 dark:text-green-400 font-bold">
         <Navbar.Link
           href="/#"
           className="text-green-600 dark:text-green-400"
@@ -30,7 +33,10 @@ export default function NavBar() {
         >
           Home
         </Navbar.Link>
-        <Navbar.Link href="/About" className="text-green-600 dark:text-green-400">
+        <Navbar.Link
+          href="/About"
+          className="text-green-600 dark:text-green-400"
+        >
           About
         </Navbar.Link>
 
@@ -40,7 +46,10 @@ export default function NavBar() {
         >
           Pricing
         </Navbar.Link>
-        <Navbar.Link href="/Contact" className="text-green-600 dark:text-green-400">
+        <Navbar.Link
+          href="/Contact"
+          className="text-green-600 dark:text-green-400"
+        >
           Contact Us
         </Navbar.Link>
         <Navbar.Link className="text-green-600 dark:text-green-400 ">
