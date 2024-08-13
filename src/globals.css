@@ -33,6 +33,7 @@ main {
   text-align: center;  */
 }
 
+
 footer {
   text-align: center;
 }
@@ -64,6 +65,13 @@ footer {
   transition-property: transform;
   transition-duration: 0.3s;
   transition-timing-function: ease;
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
  @keyframes bounce {
