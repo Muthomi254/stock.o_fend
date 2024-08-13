@@ -17,7 +17,7 @@ import {
   faBoxOpen,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function ProductForm({ onClose, isUpdating, setIsUpdating, data }) {
+export default function ProductForm({ onClose, isUpdating }) {
   const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
   const [selectedUnit, setSelectedUnit] = useState('PIECES'); // Default unit
@@ -153,9 +153,9 @@ const onSubmit = async (formData) => {
     }
   };
 
-  const handleUnitChange = (e) => {
-    setSelectedUnit(e.target.value);
-  };
+  // const handleUnitChange = (e) => {
+  //   setSelectedUnit(e.target.value);
+  // };
 
   return (
     <div>
@@ -449,110 +449,100 @@ const onSubmit = async (formData) => {
             </button>
           ) : null}
         </form>
-        <div className="col-span-1 pl-10">
+        
+        <div className="w-full max-w-lg mx-auto ml-5 overflow-y-auto h-96">
           {!isUpdating ? (
             <h5 className="text-sm font-bold dark:text-gray-100 mb-4">
               Add Products From Same Supplier:
             </h5>
           ) : null}
 
-          <ol>
-            {tempProducts.map((product, index) => (
-              <li
-                key={index}
-                className={`border p-4 mb-4 rounded-lg shadow ${
-                  index % 2 === 0
-                    ? 'bg-gray-200 dark:bg-gray-800'
-                    : 'bg-white dark:bg-gray-900'
-                }`}
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <div className="font-bold text-lg">{index + 1}:</div>
-                  <button
-                    onClick={() => handleDelete(index)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    <FontAwesomeIcon icon={faTrash} />
-                  </button>
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faTag}
-                      className="mr-1  text-green-900"
-                    />
-                    <span className="font-bold">Stock Name:</span>
-                    <span className="overflow-auto">{product.stock_name}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faInfo}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Description:</span>
-                    <span className="overflow-auto">{product.description}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Supplier:</span>
-                    <span>{product.supplier}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faBarcode}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Barcode:</span>
-                    <span>{product.barcode}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faLayerGroup}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Category:</span>
-                    <span>{product.category}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faDollarSign}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Buying Price:</span>
-                    <span>{product.buying_price}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faMoneyBill}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Selling Price:</span>
-                    <span>{product.selling_price}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faCubes}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Quantity:</span>
-                    <span>{product.quantity}</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <FontAwesomeIcon
-                      icon={faBoxOpen}
-                      className="mr-1 text-green-900"
-                    />
-                    <span className="font-bold">Unit:</span>
-                    <span>{product.unit}</span>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <table className="min-w-full bg-white dark:bg-gray-600 divide-y divide-gray-200">
+            <thead className="bg-gray-50 dark:bg-gray-600">
+              <tr>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  #
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Stock Name
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Description
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Supplier
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Barcode
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Category
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Buying Price
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Selling Price
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Quantity
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Unit
+                </th>
+                <th className="px-6 py-3 text-xs font-medium tracking-wider text-left dark:text-white text-gray-500 uppercase">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {tempProducts.map((product, index) => (
+                <tr key={index}>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                    {index + 1}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.stock_name}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.description}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.supplier}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.barcode}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.category}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.buying_price}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.selling_price}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.quantity}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {product.unit}
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <button
+                      type="button"
+                      className="text-red-600 hover:text-red-900"
+                      onClick={() => handleDelete(index)}
+                    >
+                      <FontAwesomeIcon icon={faTrash} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+
         <form
           className="w-full max-w-lg mx-auto ml-5"
           onSubmit={handleSubmit(onSubmit)}
