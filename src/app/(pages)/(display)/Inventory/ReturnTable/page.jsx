@@ -3,14 +3,25 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEye,
+  faPlus,
+  faTimes,
+  faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import SearchBar from '../../../../(components)/SearchBar/Search';
 import ReturnForm from '../../../../(components)/Forms/ReturnForm';
+import AddModal from '../../../../ui-components/AddModal';
+import { Button } from 'flowbite-react';
+
+
 
 
 export default function ReturnTable() {
   const router = useRouter();
-  const [showReturnForm, setShowReturnForm] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+
 
   const returns = [
     {
@@ -33,10 +44,32 @@ export default function ReturnTable() {
   ];
 
   const handleAddReturn = () => {
-    setShowReturnForm(!showReturnForm);
+    setModalOpen(true);
   };
 
-  const handleViewReturn = () => {
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+   const fetchProductData = async () => {
+     // Mocking a fetch request
+     return new Promise((resolve) => {
+       setTimeout(() => {
+         resolve({ data: 'Sample Data' });
+       }, 2000);
+     });
+   };
+ 
+  const handleViewReturn = async () => {
+setLoading(true);
+   try {
+     const data = await fetchProductData();
+     console.log(data); // Handle the fetched data as needed
+   } catch (error) {
+     console.error('Error fetching Returns data:', error);
+   } finally {
+     setLoading(false);
+   }
+   
     router.push('/Inventory/SingleReturn');
   };
 
@@ -47,21 +80,26 @@ export default function ReturnTable() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             All Returns
           </h2>
-          <button
-            onClick={handleAddReturn}
-            className={`flex items-center text-white ${
-              showReturnForm
-                ? 'bg-red-600 hover:bg-red-700 dark:bg-red-600 animate-bounce hover:animate-pulse'
-                : 'bg-blue-600 dark:bg-blue-600  hover:bg-blue-700'
-            } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 dark:focus:ring-blue-800 mr-4`}
-          >
+           <Button onClick={handleAddReturn}>
+            {' '}
             <FontAwesomeIcon
-              icon={showReturnForm ? faTimes : faPlus}
+              icon={faPlus} // Change icon based on showProductForm state
               className="mr-2"
             />
-            {showReturnForm ? 'Close' : 'Add'}
-          </button>
+           Make Return
+          </Button>
         </div>
+        <div>
+          <AddModal
+            open={isModalOpen}
+            title="Make Return"
+            size="2xl"
+            className="bg-transparent"
+            onClose={handleCloseModal}
+          >
+            <ReturnForm onClose={handleCloseModal} />
+          </AddModal>
+          </div>
         <div className="overflow-x-auto">
           <SearchBar />
 
@@ -128,9 +166,17 @@ export default function ReturnTable() {
                   <td className="px-4 py-2 text-gray-900 dark:text-white">
                     <button
                       onClick={handleViewReturn}
-                      className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2"
+                      className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 flex items-center"
+                      disabled={loading}
                     >
-                      <FontAwesomeIcon icon={faEye} className="mr-2" />
+                      {loading ? (
+                        <FontAwesomeIcon
+                          icon={faSpinner}
+                          className="animate-spin mr-2"
+                        />
+                      ) : (
+                        <FontAwesomeIcon icon={faEye} className="mr-2" />
+                      )}
                       View
                     </button>
                   </td>
@@ -140,12 +186,7 @@ export default function ReturnTable() {
           </table>
         </div>
       </div>
-      {showReturnForm && (
-        <div className="pr-5 mr-5">
-          {/* You can include the ReturnForm component here */}
-          <ReturnForm/>
-        </div>
-      )}
+    
     </div>
   );
 }
