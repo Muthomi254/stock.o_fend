@@ -11,6 +11,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Spinner from '../../../ui-components/SpinnerLoader'
 
 export default function Inventory() {
   const [loading, setLoading] = useState(false);
@@ -30,9 +31,7 @@ export default function Inventory() {
     <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100  dark:bg-transparent-100 bg-opacity-75 z-50">
-          <FontAwesomeIcon
-            icon={faSpinner}
-            className="h-16 w-16 text-green-600 dark:text-green-400 animate-spin"
+          <Spinner
           />
         </div>
       )}
@@ -85,7 +84,7 @@ export default function Inventory() {
                       </div>          
 
           </Link>
-                    <Link href="">
+                    <Link href="/Inventory/DispatchTable">
 
             <div onClick={handleClick}>
           <ProductCard
