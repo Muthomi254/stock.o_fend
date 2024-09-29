@@ -12,9 +12,9 @@ import {
 
 export default function FooterComponent() {
   return (
-    <Footer container className=" bg-gray-900 py-8">
+    <Footer container className="dark:bg-gray-900 bg-white text-gray-600 py-8">
       <div className="w-full  sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between text-white space-y-6 md:space-y-0">
+        <div className="flex flex-col md:flex-row items-center justify-between dark:text-white space-y-6 md:space-y-0">
           {/* Footer Logo and Copyright */}
           <div className="text-center md:text-left">
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
@@ -27,41 +27,41 @@ export default function FooterComponent() {
           </div>
 
           {/* Footer Links */}
-          <div className="flex space-x-4 md:space-x-8 text-sm ">
+          <div className="flex space-x-4 md:space-x-8 text-sm  font-bold ">
             <Footer.Link
               href="#"
-              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-400 transition duration-300"
+              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-800 transition duration-300"
             >
               Back To Top
             </Footer.Link>
             <Footer.Link
               href="/About"
-              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-400 transition duration-300"
+              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-800 transition duration-300"
             >
               About
             </Footer.Link>
             <Footer.Link
               href="#"
-              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-400 transition duration-300"
+              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-800 transition duration-300"
             >
               Privacy Policy
             </Footer.Link>
             <Footer.Link
               href="#"
-              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-400 transition duration-300"
+              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-800 transition duration-300"
             >
               Licensing
             </Footer.Link>
             <Footer.Link
               href="/Contact"
-              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-400 transition duration-300"
+              className="flex space-x-4 md:space-x-8 text-sm hover:text-green-800 transition duration-300"
             >
               Contact
             </Footer.Link>
           </div>
 
           {/* Social Media Links */}
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 text-gray-600 dark:text-gray-400 hover:text-green-800 dark:hover:text-green-400 transition duration-300">
             <a
               href="https://facebook.com"
               target="_blank"
@@ -69,7 +69,7 @@ export default function FooterComponent() {
             >
               <FontAwesomeIcon
                 icon={faFacebook}
-                className="text-white hover:text-green-400 transition duration-300 h-6 w-6"
+                className="h-6 w-6 transition duration-300 text-gray-600 dark:text-white hover:text-green-800 dark:hover:text-green-400"
               />
             </a>
             <a
@@ -79,7 +79,7 @@ export default function FooterComponent() {
             >
               <FontAwesomeIcon
                 icon={faTwitter}
-                className="text-white hover:text-green-400 transition duration-300 h-6 w-6"
+                className="h-6 w-6 transition duration-300 text-gray-600 dark:text-white hover:text-green-800 dark:hover:text-green-400"
               />
             </a>
             <a
@@ -89,7 +89,7 @@ export default function FooterComponent() {
             >
               <FontAwesomeIcon
                 icon={faLinkedin}
-                className="text-white hover:text-green-400 transition duration-300 h-6 w-6"
+                className="h-6 w-6 transition duration-300 text-gray-600 dark:text-white hover:text-green-800 dark:hover:text-green-400"
               />
             </a>
             <a
@@ -99,7 +99,7 @@ export default function FooterComponent() {
             >
               <FontAwesomeIcon
                 icon={faInstagram}
-                className="text-white hover:text-green-400 transition duration-300 h-6 w-6"
+                className="h-6 w-6 transition duration-300 text-gray-600 dark:text-white hover:text-green-800 dark:hover:text-green-400"
               />
             </a>
           </div>
