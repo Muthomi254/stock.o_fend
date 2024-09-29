@@ -47,14 +47,14 @@ export default function DispatchTable() {
     setModalOpen(false);
   };
 
-  const fetchProductData = async () => {
-    // Mocking a fetch request
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ data: 'Sample Data' });
-      }, 2000);
-    });
-  };
+  // const fetchProductData = async () => {
+  //   // Mocking a fetch request
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       resolve({ data: 'Sample Data' });
+  //     }, 2000);
+  //   });
+  // };
 
   const handleViewDispatch = async () => {
     setLoading(true);

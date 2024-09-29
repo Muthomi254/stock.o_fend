@@ -50,14 +50,14 @@ export default function ReturnTable() {
   const handleCloseModal = () => {
     setModalOpen(false);
   };
-   const fetchProductData = async () => {
-     // Mocking a fetch request
-     return new Promise((resolve) => {
-       setTimeout(() => {
-         resolve({ data: 'Sample Data' });
-       }, 2000);
-     });
-   };
+  //  const fetchProductData = async () => {
+  //    // Mocking a fetch request
+  //    return new Promise((resolve) => {
+  //      setTimeout(() => {
+  //        resolve({ data: 'Sample Data' });
+  //      }, 2000);
+  //    });
+  //  };
  
   const handleViewReturn = async () => {
 setLoading(true);

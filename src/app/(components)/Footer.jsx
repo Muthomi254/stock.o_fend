@@ -12,8 +12,8 @@ import {
 
 export default function FooterComponent() {
   return (
-    <Footer className="w-full bg-gray-900 py-8">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+    <Footer container className=" bg-gray-900 py-8">
+      <div className="w-full  sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between text-white space-y-6 md:space-y-0">
           {/* Footer Logo and Copyright */}
           <div className="text-center md:text-left">

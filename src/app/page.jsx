@@ -2,7 +2,13 @@
 
 import Link from 'next/link';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import FeatureCard from './ui-components/FeatureCard';
+import InfoCard from './ui-components/InfoCard';
+import Testimonials from './ui-components/Testimonials';
+
+
+
 import {
   ChartBarIcon,
   ClipboardCheckIcon,
@@ -118,11 +124,11 @@ export default function Home() {
         <section className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-semibold mb-8">Testimonials</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-pulse">
-            <Testimonial
+            <Testimonials
               quote="Stocko has transformed the way we manage our inventory. It's efficient and easy to use!"
               author="Jane Doe, Store Manager"
             />
-            <Testimonial
+            <Testimonials
               quote="With Stocko, we can track our stock levels in real-time, which helps us make better decisions."
               author="John Smith, Business Owner"
             />
@@ -146,32 +152,3 @@ export default function Home() {
   );
 }
 
-function FeatureCard({ icon, title, description }) {
-  return (
-    <div className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
-      <div className="h-12 w-12 mx-auto mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mt-4 mb-2">{title}</h3>
-      <p className="text-gray-700 dark:text-gray-300">{description}</p>
-    </div>
-  );
-}
-
-
-function InfoCard({ icon, title, description }) {
-  return (
-    <div className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
-      <div className="h-12 w-12 mx-auto mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mt-4 mb-2">{title}</h3>
-      <p className="text-gray-700 dark:text-gray-300">{description}</p>
-    </div>
-  );
-}
-
-function Testimonial({ quote, author }) {
-  return (
-    <div className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
-      <p className="text-lg italic mb-4">&quot;{quote}&quot;</p>
-      <p className="font-semibold">{author}</p>
-    </div>
-  );
-}

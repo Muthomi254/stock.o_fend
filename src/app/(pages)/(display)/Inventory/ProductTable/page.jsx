@@ -147,13 +147,13 @@ export default function ProductTable() {
   };
 
   // Replace this function with your actual async function
-  const fetchProductData = async () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve('Product Data Loaded');
-      }, 1000); // Simulates an API call delay
-    });
-  };
+  // const fetchProductData = async () => {
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       resolve('Product Data Loaded');
+  //     }, 1000); // Simulates an API call delay
+  //   });
+  // };
  const handleViewProduct = async () => {
    setLoading(true);
    try {
@@ -282,7 +282,6 @@ export default function ProductTable() {
           </table>
         </div>
       </div>
-      {/* Display ProductForm within a div when showProductForm is true */}
     </div>
   );
 }
