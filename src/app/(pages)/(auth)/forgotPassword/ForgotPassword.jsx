@@ -91,7 +91,7 @@ const submitForm = async () => {
             shadow
           />
         </div>
-        
+
         <button
           className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-700"
           type="submit"
@@ -101,7 +101,7 @@ const submitForm = async () => {
         </button>
         <div className="text-sm mt-2">
           <p className="text-gray-600 dark:text-gray-400">
-            Don't have an account?{' '}
+            Don&#39;t have an account?{' '}
             <Link
               href="/register"
               className="text-green-600 hover:underline hover:dark:text-green-400  hover:text-green-800 dark:text-green-500"
