@@ -106,7 +106,9 @@ const submitForm = async () => {
         </button>
         <div className="text-sm mt-2">
           <p className="text-green-600 dark:text-gray-400">
-            <span className="text-gray-800 dark:text-gray-500"> Don't have an account?</span>
+            <span className="text-gray-800 dark:text-gray-500">
+            Don&#39;t have an account?
+            </span>
             <Link
               href="/register"
               className="text-green-600 hover:underline hover:dark:text-green-400 hover:text-green-800 dark:text-green-500"

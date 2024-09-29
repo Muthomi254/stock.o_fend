@@ -28,7 +28,7 @@ export default function Contact() {
             Contact Us
           </h1>
           <p className="text-lg md:text-xl mb-10 animate-bounce">
-            We'd love to hear from you. Get in touch with us!
+            We&#39;d love to hear from you. Get in touch with us!
           </p>
         </header>
 
